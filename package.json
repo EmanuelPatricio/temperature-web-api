@@ -1,0 +1,28 @@
+{
+  "name": "temperature-web-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmanuelPatricio/temperature-web-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmanuelPatricio/temperature-web-api/issues"
+  },
+  "homepage": "https://github.com/EmanuelPatricio/temperature-web-api#readme",
+  "devDependencies": {
+    "jest": "^27.4.4",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
