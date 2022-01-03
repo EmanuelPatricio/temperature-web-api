@@ -3,7 +3,7 @@ const { Router } = require('express');
 const router = Router();
 const app = express();
 
-app.set('port', 4000);
+app.set('port', 5000);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use((req, res, next) => {
@@ -22,7 +22,7 @@ function convertTemp (temp, from_scale, to_scale) {
     'K': temp - 273.15
   };
 
-  temp = from[from_scale];
+  temp = from[from_scale.toUpperCase()];
 
   const to = {
     'C': temp,
@@ -30,13 +30,12 @@ function convertTemp (temp, from_scale, to_scale) {
     'K': temp + 273.15
   };
 
-  return String(to[to_scale]);
+  return String(to[to_scale.toUpperCase()]);
 }
 
 router.get('/temps/api', function(req, res) {
   const q = req.query.q;
   const queryStringDataColletion = q.replace(/to /i, '').split(' ');
-  console.log(queryStringDataColletion);
 
   let temperatureValue = parseFloat(queryStringDataColletion[0]);
   let temperatureFromScale = queryStringDataColletion[1].toUpperCase();
@@ -47,3 +46,5 @@ router.get('/temps/api', function(req, res) {
 
 app.use('/', router);
 app.listen(app.get('port'), () => console.log('Server on port', app.get('port')));
+
+module.exports = convertTemp;
